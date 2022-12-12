@@ -1,5 +1,5 @@
 # importing necessary packages
-from keras.preprocessing.image import img_to_array
+from tensorflow.keras.utils import img_to_array
 
 
 class ImageToArrayPreprocessor:

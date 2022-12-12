@@ -1,5 +1,5 @@
 # import the necessary packages
-from keras.preprocessing.image import img_to_array
+from tensorflow.keras.utils import img_to_array
 from keras.models import load_model
 import numpy as np
 import imutils
@@ -62,10 +62,10 @@ while True:
         # determine the probaboilities of both 'smiling' and 'not smiling',
         # then set the label accordingly
         (notSmiling, Smiling) = model.predict(roi)[0]
-        label = 'Smiling' if Smiling > notSmiling else "Not Smiling"
+        label = 'Feliz' if Smiling > notSmiling else "Triste"
 
         # display the label and bounding box on the output frame
-        if label == 'Smiling':
+        if label == 'Feliz':
             cv2.putText(frameClone, label, (fX, fY - 10), cv2.FONT_HERSHEY_SIMPLEX, 0.45, (0, 255, 0), 2)
             cv2.rectangle(frameClone, (fX, fY), (fX + fW, fY + fH), (0, 255, 0), 2)
         else:
